@@ -3,225 +3,18 @@
 <head>
 <meta charset="utf-8">
 <title>ReCycle - Vi köper din cykel</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body> 
 
-<style type="text/css">
-
-    body {
-        background-color: 	#edf3fe;
-       /* font-family: 'Poppins', sans-serif; */
-        font-size: 18px;
-        margin: 0;
-        padding-top: 100px;
-        min-height: 100vh; /* vh = viewport height */
-        display: flex;
-        flex-direction: column;
-        font-family: 'Raleway', sans-serif;
-        color:rgb(12, 9, 83)
-    }
-    /*hem,kontakt, info bräda */
-    ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        background-color: #2f62ae;
-    }
-
-    /* så att knapparna är åt vänster */
-    li {
-        float: left;
-    }
-    /* HEM ; KONTAKT ; INFO KNAPP */
-    li a {
-        display: block;
-        color: white;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-    }
-
-    li a:hover {
-    background-color: #70aee0;
-    }
-
-    /* Övrig styling för header, menyn och footer */
-    .top-menu {
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 100px;
-        width: 100%;
-        background-color: #efeff0;
-        display: flex;
-        align-items: center;
-        justify-content: flex-start; /* Placera logotyp och text till vänster */
-        padding: 0 20px;
-        z-index: 100;  /* Högre z-index än li a */
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    }
-
-    .top-menu h1 { /* Format för rubriker i top menyn */                            /* ANVÄNDER EJ????*/
-        margin: 0;
-        font-size: 30px;            
-        line-height: 1.0;
-        font-family: 'Raleway', sans-serif;
-        color: #272f4b;
-    }
-        
-    .top-menu img { /* Format för bilder i top menyn */
-        height: 80px;
-        margin-right: 20px;
-    }
-
-    .menu-text h1 {                                 
-        margin: 0;
-        font-size: 30px;
-        line-height: 1.0;
-        font-family: 'Poppins', sans-serif;
-        color: #1b40d6;
-    }
-    
-    .menu-text p {
-        margin: 0;
-        font-size: 14px;
-        color: #000000;
-        font-family: 'Raleway', sans-serif;
-    }
-
-    .header { /* Format för rubriker*/
-        padding: 10px;
-        text-align: center;
-        font-family: 'Raleway', sans-serif;
-    }
-  
-    .header h1 { /* Format för rubriker med desing h1 */
-        font-size: 40px;
-        padding: 5px;
-          font-family: 'Nunito', sans-serif;
-    }
-
-    .header p { /* Format för brödtext */                               /* ANVÄNDER EJ????*/
-        font-size: 18px;
-        margin: 0 auto; 
-        max-width: 700px;   
-        text-align: center;   
-        padding: 5px 5px;  
-        font-family: 'Nunito', sans-serif;
-    }
-
-     /* För att placera formulär och välkomstmeddelande i en rad (Flexbox) */
-    .content-wrapper {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-    /* Welcome message */
-    .welcomeMessage {
-        max-width: 700px;
-        margin: 40px auto; 
-        background-color: #ffffff; 
-        padding: 20px; 
-      /*border-radius: 10px; */
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
-        text-align: left;
-    }
-
-   /* Formulär container */
-    .form-container {
-        width: 80%;
-        background-color: #fff;
-        padding: 20px;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
-        border-radius: 8px;
-        margin-left: 30px;
-        flex: 1;
-        display: flex;
-        flex-direction: column; /* Se till att formulärelementen läggs på rader */
-    }
-
-    h2 {
-        font-size: 28px;
-        font-family: 'Raleway', sans-serif;
-    }
-
-    /* Formulär element */
-    input, textarea, button {
-        width: 90%; /* Sätt bredden till 100% för att fälten ska ta upp hela formulärets bredd */
-        padding: 12px;
-        margin-bottom: 15px; /* Lägg till mellanrum mellan fälten */
-        border: 1px solid #ddd;
-        border-radius: 4px;
-        font-size: 1rem;
-    }
-
-    /* Formatering av textarea */
-    textarea {
-       height: 100px;
-    }
-
-    /* Formatering av knappen */
-    button {
-        background-color: #4CAF50;
-        color: white;
-        border: none;
-        cursor: pointer;
-        font-size: 1.2rem;
-        transition: background-color 0.3s ease;
-    }
-
-    /* Footer */
-    .site-footer {
-        padding: 20px;
-        margin-top: auto;
-        font-size: 14px;
-        background-color: #272f4b;
-        color: rgb(255, 255, 255);
-        text-align: center;
-        box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
-    
-    }
-      
-    .site-footer a {
-        color: #98c9f7;
-        text-decoration: none;
-    }
-      
-    /* Texten blir understrycken när den pekas på */
-    .site-footer a:hover {
-        text-decoration: underline;
-    }
-      
-
-    /* Anpassad för mobil */
-    @media screen and (max-width: 768px) { 
-        .top-menu {
-          flex-direction: column;
-          height: auto;
-          text-align: center;
-        }
-    }
-
-
-
-</style>
-    </head>
-        <body> 
-
-  <!-- Länkar till menyn -->
-    <ul>
-        <li><a class="active" href="#" onclick="window.location.reload(); return false;">Hem</a></li>
+  <ul>
+        <li><a class="active" href="index.html">Hem</a></li>
         <li><a href="info.html">Info</a></li>
         <li><a href="kontakt.html">Kontakt</a></li>
-
     </ul>
 
- <!-- Top meny -->
-<div class="top-menu">
-    <!-- Lägg till onclick för att uppdatera sidan -->
+ <div class="top-menu">
     <img src="cykel.jpeg" alt="Cykelbild" onclick="refreshPage()" style="cursor: pointer;">
     <div class="menu-text">
         <h1>ReCycle</h1>
@@ -236,24 +29,16 @@
     }
 </script>
  
-    <!-- Huvudsektion med välkomstmeddelande och formulär -->
-  <div class="content-wrapper">
-    <!-- Välkomstmeddelande -->
+    <div class="content-wrapper">
     <div class="welcomeMessage">
       <h1>Välkommen till Recycle!</h1>
       <p>Vill du sälja din cykel men slipper allt krångel? Vi hjälper dig att sälja din cykel snabbt och enkelt! Fyll bara i vårt formulär med all information om cykeln, så får du ett pris direkt. Vi tar hand om hela försäljningen åt dig – från annonsering till avslut.</p>
       <p>Det bästa av allt? Det kostar dig ingenting!</p>
     </div>
     
-    <!-- Startknapp -->
-   <!-- <div class="start-container" style="text-align:center; margin-top: 10px;">
-        <button id="start-button">HÄR FINNS FORMULÄRET </button>
-    </div>--> 
-
-      <!-- Formulär -->
-    <div class="form-container">
+      <div class="form-container">
       <h2>Fyll i formuläret nedan</h2>
-      <form action="https://formspree.io/f/myform" method="POST">           <!-- LÄNK TILL FOMULÄRET HÄR-->
+      <form action="https://formspree.io/f/myform" method="POST">
         <label for="name">Ditt namn:</label>
         <input type="text" id="name" name="name" required placeholder="Ditt fulla namn">
 
@@ -277,12 +62,11 @@
     </div>
   </div>
 
-    <!-- Footer -->
     <footer class="site-footer">
         <div class="footer-content">
-          <p>&copy;  2025 ReCycle</p>
-          <p>VD Nicholas Bergvall</p></p>
-          <p><a href=kontakt.html>Kontakt</a></p>
+          <p>&copy; 2025 ReCycle</p>
+          <p>VD Nicholas Bergvall</p>
+          <p><a href="kontakt.html">Kontakt</a></p>
         </div>
       </footer>
 
